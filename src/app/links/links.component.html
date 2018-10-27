@@ -7,11 +7,12 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngFor="let link of links" lines="full">
-    <ion-item (click)="goToLink(link.url)">
+  <ion-list *ngFor="let link of links; let i = index" lines="full">
+    <ion-item  [ngClass]="(i % 2 == 0)? 'even':'odd'" (click)="goToLink(link.url)">
       <ion-label>
         <h2>{{ link.title }}</h2>
         <p>{{ link.details }}</p>
+        <p>{{ i }}</p>
       </ion-label>
       <ion-icon name="ios-arrow-forward"></ion-icon>
     </ion-item>
